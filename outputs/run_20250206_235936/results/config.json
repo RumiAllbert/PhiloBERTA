@@ -1,0 +1,20 @@
+{
+  "batch_size": 32,
+  "epochs": 5,
+  "model_base": "bert-base-multilingual-cased",
+  "timestamp": "2025-02-06T23:59:47.672885",
+  "visualization_settings": {
+    "dpi": 300,
+    "style": "publication",
+    "font_family": "Times New Roman"
+  },
+  "analysis_results": {
+    "etymological_mean": 0.7859620451927185,
+    "control_mean": 0.6732446551322937,
+    "etymological_std": 0.13525086641311646,
+    "control_std": 0.24535894393920898,
+    "t_statistic": 1.5053491313522551,
+    "p_value": 0.14428740163666837,
+    "cohens_d": 0.5689684947614799
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "total_examples": 1500,
+  "examples_per_term": 50,
+  "term_pairs": {
+    "etymological": [
+      {
+        "greek": "\u03bb\u03cc\u03b3\u03bf\u03c2",
+        "latin": "ratio",
+        "domains": [
+          "philosophy",
+          "metaphysics"
+        ],
+        "meaning": "reason, discourse, principle"
+      },
+      {
+        "greek": "\u03c8\u03c5\u03c7\u03ae",
+        "latin": "anima",
+        "domains": [
+          "philosophy",
+          "metaphysics"
+        ],
+        "meaning": "soul, life force"
+      },
+      {
+        "greek": "\u03c3\u03bf\u03c6\u03af\u03b1",
+        "latin": "sapientia",
+        "domains": [
+          "philosophy",
+          "ethics"
+        ],
+        "meaning": "wisdom"
+      },
+      {
+        "greek": "\u03bd\u03bf\u1fe6\u03c2",
+        "latin": "intellectus",
+        "domains": [
+          "philosophy",
+          "metaphysics"
+        ],
+        "meaning": "mind, intellect"
+      },
+      {
+        "greek": "\u1f00\u03c1\u03b5\u03c4\u03ae",
+        "latin": "virtus",
+        "domains": [
+          "ethics"
+        ],
+        "meaning": "virtue, excellence"
+      },
+      {
+        "greek": "\u03c6\u03cd\u03c3\u03b9\u03c2",
+        "latin": "natura",
+        "domains": [
+          "philosophy",
+          "metaphysics"
+        ],
+        "meaning": "nature"
+      },
+      {
+        "greek": "\u03bf\u1f50\u03c3\u03af\u03b1",
+        "latin": "essentia",
+        "domains": [
+          "metaphysics"
+        ],
+        "meaning": "essence, substance"
+      },
+      {
+        "greek": "\u1f00\u03bb\u03ae\u03b8\u03b5\u03b9\u03b1",
+        "latin": "veritas",
+        "domains": [
+          "philosophy",
+          "metaphysics"
+        ],
+        "meaning": "truth"
+      },
+      {
+        "greek": "\u03b4\u03b9\u03ba\u03b1\u03b9\u03bf\u03c3\u03cd\u03bd\u03b7",
+        "latin": "iustitia",
+        "domains": [
+          "ethics"
+        ],
+        "meaning": "justice"
+      },
+      {
+        "greek": "\u1f10\u03c0\u03b9\u03c3\u03c4\u03ae\u03bc\u03b7",
+        "latin": "scientia",
+        "domains": [
+          "philosophy"
+        ],
+        "meaning": "knowledge, science"
+      }
+    ],
+    "control": [
+      {
+        "greek": "\u1f00\u03c1\u03b5\u03c4\u03ae",
+        "latin": "res",
+        "domains": [
+          "philosophy"
+        ],
+        "meaning": "virtue vs thing"
+      },
+      {
+        "greek": "\u03bb\u03cc\u03b3\u03bf\u03c2",
+        "latin": "tempus",
+        "domains": [
+          "philosophy"
+        ],
+        "meaning": "reason vs time"
+      },
+      {
+        "greek": "\u03c8\u03c5\u03c7\u03ae",
+        "latin": "corpus",
+        "domains": [
+          "philosophy"
+        ],
+        "meaning": "soul vs body"
+      },
+      {
+        "greek": "\u03c3\u03bf\u03c6\u03af\u03b1",
+        "latin": "vita",
+        "domains": [
+          "philosophy"
+        ],
+        "meaning": "wisdom vs life"
+      },
+      {
+        "greek": "\u03bd\u03bf\u1fe6\u03c2",
+        "latin": "mors",
+        "domains": [
+          "philosophy"
+        ],
+        "meaning": "mind vs death"
+      }
+    ]
+  },
+  "domains": [
+    "philosophy",
+    "metaphysics",
+    "ethics"
+  ],
+  "stats": {
+    "by_language": {
+      "greek": 750,
+      "latin": 750
+    },
+    "by_pair_type": {
+      "etymological": 1000,
+      "control": 500
+    },
+    "by_domain": {
+      "philosophy": 895,
+      "metaphysics": 355,
+      "ethics": 250
+    }
+  }
+}

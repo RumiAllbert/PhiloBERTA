@@ -1,0 +1,21 @@
+=== Cross-Lingual Semantic Analysis Report ===
+
+
+Etymologically Related Pairs:
+- Mean similarity: 0.814 ± 0.003
+- Range: [0.811, 0.820]
+
+Control Pairs:
+- Mean similarity: 0.780 ± 0.023
+- Range: [0.741, 0.800]
+
+Statistical Analysis:
+- T-statistic: 3.219
+- P-value: 0.012266
+
+Top Similar Pairs:
+- ἐπιστήμη - scientia: 0.820 (etymological)
+- δικαιοσύνη - iustitia: 0.814 (etymological)
+- ἀλήθεια - veritas: 0.814 (etymological)
+- ψυχή - anima: 0.812 (etymological)
+- νοῦς - intellectus: 0.811 (etymological)

@@ -1,0 +1,27 @@
+Cross-lingual Semantic Analysis Report
+===================================
+
+1. Similarity Statistics
+----------------------
+Etymological Pairs:
+  - Mean: 0.810
+  - Std:  0.121
+
+Control Pairs:
+  - Mean: 0.714
+  - Std:  0.201
+
+2. Statistical Analysis
+---------------------
+T-test Results:
+  - t-statistic: 1.542
+  - p-value:     1.352e-01
+Effect Size:
+  - Cohen's d:   0.583
+
+3. Interpretation
+----------------
+The difference between etymological and control pairs is not statistically significant (p >= 0.05, p = 1.352e-01).
+
+The effect size (Cohen's d = 0.583) indicates a medium effect.
+This suggests that there is a substantial difference in semantic similarity between etymologically related pairs and control pairs, supporting the hypothesis of semantic preservation across languages.

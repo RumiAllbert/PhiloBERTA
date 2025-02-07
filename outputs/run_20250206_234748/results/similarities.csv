@@ -1,0 +1,15 @@
+greek_term,latin_term,similarity,pair_type
+λόγος,ratio,0.6295901689952422,Etymological
+σοφία,sapientia,0.6290132647338673,Etymological
+νοῦς,intellectus,0.5758391283973379,Etymological
+φύσις,natura,0.6369939562690027,Etymological
+αἰτία,causa,0.6125427248369875,Etymological
+οὐσία,essentia,0.4614329700607811,Etymological
+τέχνη,ars,0.6882993336550831,Etymological
+λόγος,corpus,0.647179754743966,Control
+σοφία,bellum,0.6498040968264391,Control
+νοῦς,mare,0.591662082319293,Control
+φύσις,urbs,0.5489464581434168,Control
+αἰτία,flos,0.577852938138476,Control
+οὐσία,ventus,0.5534370490634732,Control
+τέχνη,silva,0.6514756473360823,Control
