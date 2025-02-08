@@ -113,7 +113,7 @@ model.plot_similarity_distribution(results)
 ```bibtex
 @inproceedings{philoberta2025,
     title = "PhiloBERTA: A Transformer-Based Cross-Lingual Analysis of Greek and Latin Lexicon",
-    author = "Allbert, Rumi A.",
+    author = "Allbert, Rumi A. and Allbert, Makai L.",
     month = feb,
     year = "2025"
 }
