@@ -5,7 +5,6 @@ from datetime import datetime
 
 from philoberta.data import CorpusLoader
 from philoberta.evaluation import Evaluator
-from philoberta.model import SPHILBERTA
 
 
 def setup_output_dirs(base_dir="outputs"):
@@ -25,7 +24,7 @@ def train(args):
     run_dir = setup_output_dirs()
 
     # Initialize components
-    model = SPHILBERTA()
+    model = PHILOBERTA()
     data_loader = CorpusLoader()
     evaluator = Evaluator(model, data_loader)
 
