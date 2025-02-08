@@ -25,27 +25,51 @@ Our latest analysis shows:
 
 ## Features
 
-🔍 **Advanced Analysis Framework**
-- Cross-lingual semantic similarity computation
-- Context-aware embedding generation
-- Robust statistical validation methodology
+**Core Components**
+- Multilingual transformer model trained on classical texts
+- Cross-lingual term alignment system
+- Statistical significance testing framework
 
-📚 **Comprehensive Dataset**
-- Curated philosophical texts from Greek and Latin sources
-- Rich contextual examples for each term
-- Genre-labeled passages for controlled analysis
+**Analysis Tools**
+- Automated term extraction and alignment
+- Cross-lingual similarity metrics
+- Configurable context window analysis
 
-🛠️ **Technical Capabilities**
-- Fine-tuned transformer architecture
-- Multi-lingual token handling
-- Contextual embedding analysis
-- Advanced visualization tools
+**Visualization Tools**
+- Term relationship networks
+- Semantic space projections
+- Comparative analysis plots
 
-📊 **Visualization Suite**
-- t-SNE projections of semantic spaces
-- Similarity heatmaps
-- Distribution analysis
-- Comparative radar charts
+## System Architecture
+
+```mermaid
+graph TD
+    A[Input Terms] --> B[Text Processor]
+    B --> C[Embedding Generator]
+    B --> D[Context Extractor]
+    
+    C --> E[Cross-Lingual Aligner]
+    D --> E
+    
+    E --> F[Similarity Analyzer]
+    F --> G[Statistical Validator]
+    
+    G --> H[Results & Visualizations]
+    
+    subgraph Data Sources
+        I[Greek Texts] --> B
+        J[Latin Texts] --> B
+    end
+    
+    subgraph Analysis Pipeline
+        B
+        C
+        D
+        E
+        F
+        G
+    end
+```
 
 ## Installation
 
