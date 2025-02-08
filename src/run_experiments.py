@@ -7,8 +7,8 @@ import numpy as np
 import pandas as pd
 import torch
 
-from sphilberta.evaluation import Evaluator
-from sphilberta.model import SPHILBERTA
+from philoberta.evaluation import Evaluator
+from philoberta.model import SPHILBERTA
 
 # Extended term pairs for more comprehensive analysis
 TERM_PAIRS = {
@@ -119,6 +119,16 @@ def run_experiments(
     # Distribution plots
     evaluator.plot_similarity_distribution(
         similarities_df, os.path.join(run_dir, "figures", "similarity_distribution.png")
+    )
+
+    # Radar plot
+    evaluator.plot_similarity_radar(
+        similarities_df, os.path.join(run_dir, "figures", "similarity_radar.png")
+    )
+
+    # Paired comparison plot
+    evaluator.plot_paired_comparison(
+        similarities_df, os.path.join(run_dir, "figures", "paired_comparison.png")
     )
 
     # t-SNE visualization
