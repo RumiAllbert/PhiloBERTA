@@ -1,5 +1,4 @@
-
-# SPHILBERTA: Cross-Lingual Semantic Analysis of Ancient Greek and Latin Philosophical Terms
+# PHILOBERTA: Cross-Lingual Semantic Analysis of Ancient Greek and Latin Philosophical Terms
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyTorch 2.0](https://img.shields.io/badge/PyTorch-2.0-%23EE4C2C.svg)](https://pytorch.org/)
@@ -8,7 +7,7 @@ A transformer-based framework for quantifying semantic relationships between Anc
 
 ## Overview
 
-This repository contains code and data for our ACL-style paper on cross-lingual analysis of classical philosophical terms. Our SPHILBERTA model demonstrates:
+This repository contains code and data for our ACL-style paper on cross-lingual analysis of classical philosophical terms. Our PHILOBERTA model demonstrates:
 
 ✅ **65% higher similarity scores** for etymological pairs vs controls (0.70 vs 0.41)  
 ✅ **Robustness to missing metadata** (Δ < 0.03 performance degradation)  
@@ -43,10 +42,10 @@ Requirements:
 
 ### Basic Analysis
 ```python
-from model import SPHILBERTA, load_corpus
+from model import PHILOBERTA, load_corpus
 
 # Initialize model
-model = SPHILBERTA.from_pretrained("agentlab/sphilberta-base")
+model = PHILOBERTA.from_pretrained("agentlab/philoberta-base")
 
 # Load sample contexts
 greek_contexts = load_corpus("data/perseus/greek.csv")
@@ -87,7 +86,7 @@ Download preprocessed data: [embeddings.zip](https://example.com/embeddings)
 
 Key metrics from our analysis:
 
-| Metric                | SPHILBERTA | mBERT | Δ    |
+| Metric                | PHILOBERTA | mBERT | Δ    |
 |-----------------------|------------|-------|------|
 | Cross-lingual ACC     | 0.92       | 0.78  | +18% |
 | Intra-language cohesion | 0.85     | 0.71  | +20% |
@@ -96,7 +95,7 @@ Key metrics from our analysis:
 ## Citation
 
 ```bibtex
-@article{sphilberta2023,
+@article{philoberta2023,
   title={Cross-Lingual Semantic Analysis of Ancient Greek Philosophical Terms Using Modern Language Models},
   author={Agent Laboratory},
   journal={arXiv preprint arXiv:2308.12008},
@@ -107,4 +106,3 @@ Key metrics from our analysis:
 ## License
 
 MIT License - See [LICENSE](LICENSE) for details.
-```
