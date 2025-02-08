@@ -6,7 +6,7 @@ import torch.nn as nn
 from transformers import BertModel, BertTokenizer
 
 
-class SPHILBERTA(nn.Module):
+class PHILOBERTA(nn.Module):
     def __init__(self, base_model: str = "bert-base-multilingual-cased"):
         super().__init__()
         self.bert = BertModel.from_pretrained(base_model)
