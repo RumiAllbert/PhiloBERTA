@@ -4,8 +4,8 @@ from datetime import datetime
 
 import pandas as pd
 
+from philoberta.model import SPHILBERTA
 from run_experiments import run_experiments
-from sphilberta.model import SPHILBERTA
 
 
 def main(args):
