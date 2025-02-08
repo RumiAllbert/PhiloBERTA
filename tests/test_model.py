@@ -2,13 +2,13 @@ import unittest
 
 from philoberta.data import CorpusLoader
 from philoberta.evaluation import Evaluator
-from philoberta.model import SPHILBERTA
+from philoberta.model import PHILOBERTA
 
 
 class TestPHILOBERTA(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.model = SPHILBERTA()
+        cls.model = PHILOBERTA()
         cls.data_loader = CorpusLoader()
         cls.evaluator = Evaluator(cls.model, cls.data_loader)
 
