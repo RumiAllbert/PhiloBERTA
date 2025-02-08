@@ -3,9 +3,9 @@ import json
 import os
 from datetime import datetime
 
-from sphilberta.data import CorpusLoader
-from sphilberta.evaluation import Evaluator
-from sphilberta.model import SPHILBERTA
+from philoberta.data import CorpusLoader
+from philoberta.evaluation import Evaluator
+from philoberta.model import SPHILBERTA
 
 
 def setup_output_dirs(base_dir="outputs"):
