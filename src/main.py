@@ -4,7 +4,6 @@ from datetime import datetime
 
 import pandas as pd
 
-from philoberta.model import SPHILBERTA
 from run_experiments import run_experiments
 
 
@@ -25,8 +24,8 @@ def main(args):
     print(contexts_df.groupby(["language", "pair_type"]).size().unstack())
 
     # Step 2: Initialize model
-    print("\nStep 2: Loading SPHILBERTA model...")
-    model = SPHILBERTA(base_model=args.model_base)
+    print("\nStep 2: Loading PHILOBERTA model...")
+    model = PHILOBERTA(base_model=args.model_base)
 
     # Step 3: Run experiments
     print("\nStep 3: Running experiments...")
@@ -63,7 +62,7 @@ if __name__ == "__main__":
         "--model_base",
         type=str,
         default="bert-base-multilingual-cased",
-        help="Base model to use for SPHILBERTA",
+        help="Base model to use for PHILOBERTA",
     )
 
     args = parser.parse_args()
