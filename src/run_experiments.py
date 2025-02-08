@@ -8,7 +8,7 @@ import pandas as pd
 import torch
 
 from philoberta.evaluation import Evaluator
-from philoberta.model import SPHILBERTA
+from philoberta.model import PHILOBERTA
 
 # Extended term pairs for more comprehensive analysis
 TERM_PAIRS = {
@@ -29,7 +29,7 @@ TERM_PAIRS = {
 }
 
 
-def safe_embed(text: str, model: SPHILBERTA, pooling: str = "cls") -> np.ndarray:
+def safe_embed(text: str, model: PHILOBERTA, pooling: str = "cls") -> np.ndarray:
     try:
         inputs = model.tokenizer(
             text, padding=True, truncation=True, max_length=512, return_tensors="pt"
@@ -53,7 +53,7 @@ def angular_similarity(v1: np.ndarray, v2: np.ndarray) -> float:
 
 
 def run_experiments(
-    model: SPHILBERTA, contexts_df: pd.DataFrame, output_dir: str = "outputs"
+    model: PHILOBERTA, contexts_df: pd.DataFrame, output_dir: str = "outputs"
 ) -> Dict:
     """Run enhanced experiments with more term pairs and analysis"""
 
@@ -192,7 +192,7 @@ def run_experiments(
 
 if __name__ == "__main__":
     # Load model and data
-    model = SPHILBERTA()
+    model = PHILOBERTA()
     contexts_df = pd.read_csv("data/contexts.csv")  # You'll need to prepare this
 
     # Run experiments
