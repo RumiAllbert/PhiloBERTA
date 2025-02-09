@@ -269,7 +269,7 @@ Compared to baseline approaches, PhiloBERTA shows particular strength in capturi
 These results establish that modern language models can effectively capture historical semantic relationships while maintaining statistical robustness. The significant difference between etymological and control pairs ($\Delta\mu = 0.034$, $p = 0.012$) validates PhiloBERTA's ability to identify genuine semantic preservation across classical languages.
 
 \section{Discussion}
-Our analysis reveals several key insights about semantic preservation in classical languages. The remarkably low standard deviation in etymological pairs ($\sigma = 0.003$) compared to control pairs ($\sigma = 0.023$) suggests that semantic preservation follows systematic rather than random patterns. This is particularly evident in abstract philosophical concepts, where terms like ἐπιστήμη-scientia (0.820) and δικαιοσύνη-iustitia (0.814) show the strongest cross-lingual alignment.
+Our analysis reveals several key insights about semantic preservation in classical languages. The remarkably low standard deviation in etymological pairs ($\sigma = 0.003$) compared to control pairs ($\sigma = 0.023$) suggests that semantic preservation follows systematic rather than random patterns. This is particularly evident in abstract philosophical concepts, where terms like \textgreek{ἐπιστήμη}-scientia (0.820) and \textgreek{δικαιοσύνη}-iustitia (0.814) show the strongest cross-lingual alignment.
 
 Three aspects of our findings warrant particular attention:
 
@@ -288,19 +288,19 @@ While our study demonstrates promising results, several limitations remain. The 
 \centering
 \caption{Top Performing Term Pairs}
 \begin{tabular}{lcc}
-Pair & Similarity & Category \\
+Pair & Similarity \\
 \hline
-ἐπιστήμη-scientia & 0.820 & Etymological \\
-δικαιοσύνη-iustitia & 0.814 & Etymological \\
-ἀλήθεια-veritas & 0.814 & Etymological \\
-ψυχή-anima & 0.812 & Etymological \\
+\textgreek{ἐπιστήμη}-scientia & 0.820 \\
+\textgreek{δικαιοσύνη}-iustitia & 0.814 \\
+\textgreek{ἀλήθεια}-veritas & 0.814  \\
+\textgreek{ψυχή}-anima & 0.812 \\
 \end{tabular}
 \end{table}
 
 \section{Conclusion}
 This study establishes that modern cross-lingual language models, when adapted for ancient languages, can effectively capture semantic relationships between Greek and Latin philosophical terms. Through rigorous evaluation of 10 philosophical term pairs, we demonstrate that PhiloBERTA achieves statistically significant differentiation between etymologically related and control pairs ($\mu_{etymological} = 0.814 \pm 0.003$ vs $\mu_{control} = 0.780 \pm 0.023$, $p = 0.012$). The remarkably low variance in etymological pairs ($\sigma = 0.003$) suggests systematic preservation of semantic relationships across classical languages.
 
-Three key insights emerge from our analysis: 1) The extremely low standard deviation in etymological pairs ($\sigma = 0.003$) indicates structured rather than random semantic preservation, 2) Abstract philosophical concepts show particularly strong cross-lingual alignment (ἐπιστήμη-scientia: 0.820, δικαιοσύνη-iustitia: 0.814), and 3) The clear statistical significance ($p = 0.012$) provides strong evidence for non-random semantic preservation.
+Three key insights emerge from our analysis: 1) The extremely low standard deviation in etymological pairs ($\sigma = 0.003$) indicates structured rather than random semantic preservation, 2) Abstract philosophical concepts show particularly strong cross-lingual alignment (\textgreek{ἐπιστήμη}-scientia: 0.820, \textgreek{δικαιοσύνη}-iustitia: 0.814), and 3) The clear statistical significance ($p = 0.012$) provides strong evidence for non-random semantic preservation.
 
 Our visualization framework, combining enhanced heatmaps, radar plots, and paired comparisons, provides novel insights into the patterns of semantic preservation across classical languages. The radar visualization particularly highlights the systematic nature of semantic preservation, while paired comparisons reveal term-specific patterns in cross-lingual alignment.
 
