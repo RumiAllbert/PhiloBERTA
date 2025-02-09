@@ -16,7 +16,7 @@ setup(
         "datasets>=2.12.0",
         "tqdm>=4.65.0",
     ],
-    author="Agent Laboratory",
-    description="Cross-Lingual Semantic Analysis of Ancient Greek Philosophical Terms",
-    python_requires=">=3.8",
+    author="Rumi Allbert",
+    description="PhiloBERTA: A Transformer-Based Cross-Lingual Analysis of Greek and Latin Lexicon",
+    python_requires=">=3.10",
 )
