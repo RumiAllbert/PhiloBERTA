@@ -92,20 +92,24 @@ pip install -r requirements.txt
 ## Usage
 
 ```python
-from philoberta import PhiloBERTa
+from philoberta.model import PHILOBERTA
 
-# Initialize model
-model = PhiloBERTa.from_pretrained("agentlab/philoberta-base")
+# Initialize the model
+model = PHILOBERTA()  # Uses default bert-base-multilingual-cased
 
-# Analyze terms
-results = model.analyze_pair(
+# To analyze terms with context
+greek_contexts = ["Context 1 with ψυχή", "Context 2 with ψυχή"]
+latin_contexts = ["Context 1 with anima", "Context 2 with anima"]
+
+similarity = model.cross_similarity(
     greek_term="ψυχή",
     latin_term="anima",
-    context_window=5
+    greek_contexts=greek_contexts,
+    latin_contexts=latin_contexts
 )
 
 # Generate visualizations
-model.plot_similarity_distribution(results)
+model.plot_similarity_distribution(similarity)
 ```
 
 ## Citation
