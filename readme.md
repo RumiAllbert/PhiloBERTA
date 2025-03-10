@@ -115,11 +115,14 @@ model.plot_similarity_distribution(similarity)
 ## Citation
 
 ```bibtex
-@inproceedings{philoberta2025,
-    title = "PhiloBERTA: A Transformer-Based Cross-Lingual Analysis of Greek and Latin Lexicon",
-    author = "Allbert, Rumi A. and Allbert, Makai L.",
-    month = feb,
-    year = "2025"
+@misc{allbert2025philobertatransformerbasedcrosslingualanalysis,
+      title={PhiloBERTA: A Transformer-Based Cross-Lingual Analysis of Greek and Latin Lexicons}, 
+      author={Rumi A. Allbert and Makai L. Allbert},
+      year={2025},
+      eprint={2503.05265},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2503.05265}, 
 }
 ```
 
