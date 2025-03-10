@@ -2,6 +2,8 @@
 \usepackage{amsmath, amssymb, array, algorithm, algorithmicx, algpseudocode, booktabs, colortbl, color, enumitem, fontawesome5, float, graphicx, hyperref, listings, makecell, multicol, multirow, pgffor, pifont, soul, sidecap, subcaption, titletoc, footmisc, url, wrapfig, xcolor, xspace, geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{parskip}
+\usepackage{tikz}
+\usetikzlibrary{shadows}
 
 \usepackage{textcomp}
 
@@ -107,9 +109,9 @@
     \hfill
     \begin{minipage}{0.45\textwidth}
         \centering
-        {\large \textbf{Makai L. Allbert}}\\[0.2em]
-        {\small\ttfamily makai23allbert@gmail.com}\\[0.2em]
-        {\normalsize \textit{}}
+        {\large \textbf{Makai L. Allbert}\textsuperscript{\href{https://orcid.org/0000-0003-4756-0569}{†}}}\\[0.2em]
+        {\small\ttfamily makai.allbert@ralston.ac}\\[0.2em]
+        {\normalsize \textit{Ralston College}}
     \end{minipage}
 }
 
@@ -120,19 +122,30 @@
 \maketitle
 
 \begin{abstract}
-We present PhiloBERTA, a cross-lingual transformer model that measures semantic relationships between ancient Greek and Latin lexicons. Through analysis of selected term pairs from classical texts, we employ contextual embeddings and angular similarity metrics to identify precise semantic alignments. Our results show that etymologically related pairs demonstrate significantly higher similarity scores, particularly for abstract philosophical concepts such as \textgreek{ἐπιστήμη} (scientia) and \textgreek{δικαιοσύνη} (iustitia). Statistical analysis reveals consistent patterns in these relationships ($p=0.012$), with etymologically related pairs showing remarkably stable semantic preservation compared to control pairs. These findings establish a quantitative framework for examining how philosophical concepts moved between Greek and Latin traditions, offering new methods for classical philological research.
+We present PhiloBERTA, a cross-lingual transformer model that measures semantic relationships between ancient Greek and Latin lexicons. Through analysis of selected term pairs from classical texts, we use contextual embeddings and angular similarity metrics to identify precise semantic alignments. Our results show that etymologically related pairs demonstrate significantly higher similarity scores, particularly for abstract philosophical concepts such as \textgreek{ἐπιστήμη} (scientia) and \textgreek{δικαιοσύνη} (iustitia). Statistical analysis reveals consistent patterns in these relationships ($p=0.012$), with etymologically related pairs displaying remarkable semantic preservation compared to control pairs. These findings establish a quantitative framework for examining how philosophical concepts progressed between Greek and Latin traditions, offering a new method for classical philological research.
 \end{abstract}
 
 \section{Introduction}
-The computational analysis of semantic relationships between ancient languages presents unique challenges distinct from modern language processing. Philosophical terms in ancient Greece carried specialized meanings that evolved through centuries of theological and philosophical discourse. Quantifying these semantic relationships requires models capable of handling three fundamental complexities: \textbf{1)} scarce parallel corpora for classical languages, \textbf{2)} polysemy influenced by genre-specific usage, and \textbf{3)} diachronic semantic changes across texts.
+Diachronic and cross-lingual semantic studies play an important role in understanding linguistic and conceptual evolution across time and cultures. In the domain of classical languages, such as Ancient Greek and Latin, this type of analysis is particularly valuable for examining complex historical texts, including philosophical writings. Philosophical terms in Ancient Greece often carried specialized meanings that evolved through centuries of theological and philosophical discourse. These texts shaped intellectual traditions for millennia, yet studying their nuanced semantic shifts and cross-lingual relationships presents unique computational challenges.
 
-This work makes four contributions:
+A core difficulty lies in handling three fundamental complexities: \textbf{1)} scarce parallel corpora for classical languages, \textbf{2)} polysemy influenced by genre-specific usage, and \textbf{3)} diachronic semantic changes across texts. Ancient Greek and Latin feature highly inflected morphology, significant lexical polysemy, and distinct syntactic structures from modern languages. Moreover, the texts under investigation---particularly philosophical works---encompass specialized vocabulary, overlapping conceptual terminology, and complex allusions. For instance, terms such as \textit{logos} in Ancient Greek or \textit{anima} in Latin exhibit semantic and conceptual evolution tied to changing philosophical interpretations over time. These characteristics push the boundaries of existing computational models, which are often trained on modern, high-resource languages and do not generalize well to classical languages. This underlines the necessity of developing customized models that incorporate diachronic information and adapt to cross-lingual alignment in resource-scarce historical contexts.
+
+The advent of contextualized embeddings through transformer architectures has opened new possibilities for handling these challenges. Models like mBERT, LASER, and XLM-R have demonstrated the ability to generate aligned latent representations for cross-lingual tasks and to uncover semantic relationships in low-resource languages. These techniques have been successfully applied to tasks such as sentence-level alignment of Ancient Greek translations into Latin~\cite{Craig2023TestingTL,Yousef2022AnAM}, multilingual lemmatization, and semantic retrieval~\cite{riemenschneider2023graeciacaptaferumvictorem,krahn2023sentenceembeddingmodelsancient}. However, these approaches often prioritize modern cross-lingual alignment tasks (e.g., French—English) and seldom tackle the additional complexity of diachronic semantic shifts, where meanings change over time as reflected in historical texts.
+
+Efforts to analyze diachronic semantic change, such as through embedding-based or Bayesian models, have proven effective for detecting lexical shifts in Ancient Greek and Latin~\cite{Perrone2021LexicalSC,sprugnoliBuildingComparingLemma2020,mcgillivrayComputationalApproachLexical2019}. Embedding methods like GASC~\cite{Perrone2021LexicalSC} and lemma-based comparisons of historical corpora~\cite{sprugnoliBuildingComparingLemma2020} have shown that temporal segmentation can reveal meaningful trends in word usage. While these methods provide valuable insights into diachronic patterns, they lack integration with cross-lingual approaches, limiting their utility for analyzing semantic alignment between Ancient Greek and Latin philosophical corpora.
+
+To date, few computational frameworks have unified these two areas: the unsupervised cross-lingual alignment of embeddings and the detection of diachronic semantic shifts. Existing research has also largely overlooked the philosophical domain, whose texts---dense with conceptual polysemy and intertextual references---pose unique challenges for computational analysis. Recent innovations, such as SPhilBERTa~\cite{riemenschneider2023graeciacaptaferumvictorem} and fine-tuned XLM-R~\cite{Yousef2022AnAM}, have demonstrated the potential of multilingual transformers for analyzing domain-specific corpora. However, these models have yet to explicitly address diachronic modeling or tackle the interpretive complexity of philosophical semantics.
+
+This paper addresses these gaps by introducing a new transformer-based model specifically designed for cross-lingual and diachronic semantic alignment in Ancient Greek and Latin philosophical writings. The proposed model builds on the strengths of recent multilingual embedding techniques while incorporating advancements for handling sparse, diachronic corpora and domain-specific terminology. By integrating cross-lingual alignment capabilities with the ability to track temporal semantic shifts, this model aims to advance the computational analysis of classical languages, providing new tools for uncovering the evolution of philosophical ideas and concepts across historical and linguistic divides.
+
+Beyond presenting this model, the work makes four key contributions to the field:
 \begin{itemize}
-\item A evaluation framework combining angular similarity analysis with visualization techniques to isolate cross-lingual semantic relationships.
-\item Empirical validation that etymologically related pairs exhibit systematic preservation ($\sigma = 0.003$) while maintaining appropriate differentiation in control pairs ($\sigma = 0.023$)
-\item Demonstration of robust preservation in abstract philosophical concepts (\textgreek{ἐπιστήμη}-scientia: 0.820, \textgreek{δικαιοσύνη}-iustitia: 0.814)
-\item Public release of our training scripts and visualization pipelines
+    \item \textbf{An evaluation framework} that combines angular similarity analysis with visualization techniques to isolate semantic relationships between languages.
+    \item \textbf{Empirical validation} that etymologically related pairs exhibit systematic preservation ($\sigma = 0.003$) while maintaining appropriate differentiation in control pairs ($\sigma = 0.023$).
+    \item \textbf{Demonstration of robust preservation} in abstract philosophical concepts (e.g., \textgreek{ἐπιστήμη}--\textit{scientia}: 0.820, \textgreek{δικαιοσύνη}--\textit{iustitia}: 0.814).
 \end{itemize}
+
+By focusing on these contributions, our approach combines cross-lingual alignment and diachronic modeling. It highlights the interpretive insights that can be gained from studying philosophical semantics in Ancient Greek and Latin.
 
 \section{Background} 
 Modern computational philology builds upon three foundational pillars: contextual language models, cross-lingual alignment techniques, and diachronic semantic analysis. Let $\mathcal{C} = \{c_1,...,c_n\}$ represent a corpus of ancient texts where each context $c_i \in \mathbb{R}^d$ is encoded through transformer layers $f_\theta: \mathcal{V}^* \rightarrow \mathbb{R}^d$, with $\mathcal{V}$ being the vocabulary. For bilingual term pairs $(g,l) \in \mathcal{P}$ where $g \in \mathcal{V}_g$ (Greek) and $l \in \mathcal{V}_l$ (Latin), the semantic similarity metric becomes:
@@ -169,7 +182,7 @@ Multilingual knowledge distillation \cite{krahn-2023} provides the framework for
 \mathcal{L}_{\text{distill}} = \frac{1}{n}\sum_{i=1}^n \|z_t^{(i)} - f_\theta(c_g^{(i)})\|^2 + \lambda \text{KL}(p_t \| p_\theta)
 \end{equation}
 
-This enables alignment without parallel Greek-Latin corpora, leveraging English as pivot language. Our ablation studies show this reduces required parallel data by 83\% compared to direct alignment approaches.
+This enables alignment without parallel Greek-Latin corpora, leveraging English as a pivot language. Our ablation studies show this reduces required parallel data by 83\% compared to direct alignment approaches.
 
 \section{Related Work}
 Prior work in classical language modeling falls into three categories: monolingual embeddings, cross-lingual alignment, and philological applications. Riemenschneider and Frank (2023) established state-of-the-art monolingual performance through their 100M-word multilingual corpus, achieving 0.89 accuracy on POS tagging versus our PhiloBERTA's 0.85 ($\Delta=-4.5\%$, $p=0.03$). However, their explicit avoidance of modern language contamination limits cross-lingual capabilities, yielding only 0.62 translation search accuracy compared to our 0.92 ($+48\%$ improvement). This trade-off between linguistic purity and utility mirrors debates in low-resource ML - our synthetic training paradigm confirms that contamination can be beneficial when properly controlled through adversarial filtering ($\beta=0.73$, $SE=0.15$).
@@ -202,7 +215,7 @@ Our methodology integrates multilingual transformer architectures with evaluatio
 \begin{tikzpicture}[
     box/.style={
         draw,
-        fill=blue!10,
+        fill=blue!20,
         minimum width=4cm,
         minimum height=1cm,
         align=center,
@@ -226,8 +239,7 @@ Our methodology integrates multilingual transformer architectures with evaluatio
         line width=1.5pt
     }
 ]
-
-% Title with more professional font
+% Title with professional font
 \node[font=\Large\sffamily\bfseries, text=blue!60] at (0,1) {PhiloBERTA Architecture};
 
 % Main components with professional font
@@ -236,14 +248,14 @@ Our methodology integrates multilingual transformer architectures with evaluatio
 \node[box] (temporal) at (0,-3) {Temporal Projection};
 \node[box] (embeddings) at (0,-4.5) {Cross-lingual Embeddings};
 
-% Curved arrows
-\draw[arrow] (tokenizer) to[out=-90,in=90] (bert);
-\draw[arrow] (bert) to[out=-90,in=90] (temporal);
-\draw[arrow] (temporal) to[out=-90,in=90] (embeddings);
+% Straight vertical arrows
+\draw[arrow] (tokenizer.south) -- (bert.north);
+\draw[arrow] (bert.south) -- (temporal.north);
+\draw[arrow] (temporal.south) -- (embeddings.north);
 
 % Model details box with simple, clean formatting
 \node[details] (details) at (5.5,-2.5) {
-    \textbf{\textcolor{blue!60}{\sffamily Model Specifications:}}
+    \textbf{\textcolor{blue!60}{\sffamily Model Specifications}} \\
     \begin{itemize}[leftmargin=15pt,nosep]
         \item \textbf{Hidden Dimension:} 768
         \item \textbf{Attention Heads:} 12
@@ -253,9 +265,8 @@ Our methodology integrates multilingual transformer architectures with evaluatio
 
 % Add connecting line between BERT and details
 \draw[draw=blue!40, dashed] (bert.east) -- (details.west);
-
 \end{tikzpicture}
-\caption{PhiloBERTA's architectural components and specifications}
+\caption{Overview of PhiloBERTA's architecture: (1) a Multilingual Tokenizer processes Ancient Greek and Latin texts, (2) the PhiloBERTA Core, a transformer-based model, generates contextual representations, (3) a Temporal Projection layer handles diachronic variations, and (4) Cross-lingual Embeddings align semantic spaces across languages. Model specifications are tied to the core.}
 \label{fig:architecture_detailed}
 \end{figure}
 
